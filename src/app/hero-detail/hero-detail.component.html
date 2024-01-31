@@ -1,12 +1,12 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
+  <h2 data-testid="hero-title">{{hero.name | uppercase}} Details</h2>
+  <div data-testid="hero-id"><span>id: </span>{{hero.id}}</div>
   <div>
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name" data-testid="hero-name-input" />
   </div>
-  <button type="button" (click)="goBack()">go back</button>
-  <button type="button" (click)="save()">save</button>
+  <button type="button" (click)="goBack()" data-testid="go-back-button">go back</button>
+  <button type="button" (click)="save()" data-testid="save-button">save</button>
 </div>
 
 
