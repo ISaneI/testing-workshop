@@ -61,8 +61,8 @@ export class HeroService {
     }
     return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
-         this.log(`found heroes matching "${term}"`) :
-         this.log(`no heroes matching "${term}"`)),
+        this.log(`found heroes matching "${term}"`) :
+        this.log(`no heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }
@@ -93,6 +93,11 @@ export class HeroService {
       tap(_ => this.log(`updated hero id=${hero.id}`)),
       catchError(this.handleError<any>('updateHero'))
     );
+  }
+
+
+  getLastHeroMessage(): string | undefined {
+    return this.messageService.getLastMessage()
   }
 
   /**

@@ -11,6 +11,11 @@ export class MessageService {
   clear() {
     this.messages = [];
   }
+
+
+  getLastMessage(): string | undefined {
+    return this.messages.at(-1)
+  }
 }
 
 
